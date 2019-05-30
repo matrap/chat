@@ -7,7 +7,7 @@ Application is based on:
 
 # Prerequisites
 - Installed node.js
-- Cloned repository 'chat'
+- Cloned repository `chat`
 
 # Getting started
 - For development use command: `npm start`. Browser will open automatically the page with application
