@@ -1,7 +1,6 @@
-# Chat
 [![Build Status](https://travis-ci.com/matrap/chat.svg?branch=master)](https://travis-ci.com/matrap/chat)
-
-Chat application based on:
+# Chat
+Application is based on:
 - node.js 
 - socket.io
 - React.js
