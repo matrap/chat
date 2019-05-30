@@ -2,6 +2,13 @@
     "name": "chat",
     "version": "1.0.0",
     "description": "Chat application using Node.js and React.js",
+    "author": "Mateusz Rapacz",
+    "license": "MIT",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/matrap/chat.git"
+    },
     "scripts": {
         "prestart": "babel-node tools/startMessage.js",
         "start": "npm-run-all --parallel open:src lint:watch test:watch",
@@ -17,9 +24,6 @@
         "build": "babel-node tools/build.js",
         "server": "babel-node tools/distServer.js"
     },
-    "author": "Mateusz Rapacz",
-    "license": "mit",
-    "private": false,
     "dependencies": {
         "babel-polyfill": "^6.26.0",
         "body-parser": "^1.18.3",
