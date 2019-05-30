@@ -18,7 +18,7 @@
         "server": "babel-node tools/distServer.js"
     },
     "author": "Mateusz Rapacz",
-    "license": "UNLICENSED",
+    "license": "mit",
     "private": false,
     "dependencies": {
         "babel-polyfill": "^6.26.0",
