@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 import { defineRouter, defineSockets } from './api';
 
 import compression from 'compression';
+import colors from 'colors';
 
 /*eslint-disable no-console */
 
@@ -29,3 +30,5 @@ defineSockets(io);
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+
+console.log('Server is running in release mode...'.green);
