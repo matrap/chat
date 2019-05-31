@@ -22,7 +22,7 @@ export default {
     },
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
-        new MiniCssExtractPlugin('styles.css')
+        new MiniCssExtractPlugin({ filename:'styles.css' })
     ],
     optimization: {
         minimizer: [
@@ -41,7 +41,7 @@ export default {
     module: {
         rules: [
             { test: /\.js$/, include: path.join(__dirname, 'src'), use: [{ loader: 'babel-loader' }]},
-            { test: /(\.css)$/, use: [{ loader: MiniCssExtractPlugin.loader }]},
+            { test: /(\.css)$/, use: [{loader: MiniCssExtractPlugin.loader}, { loader: 'css-loader' }]},
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }]},
             { test: /\.(woff|woff2)$/, use: [{ loader: 'url-loader', options: { prefix: 'font', limit: 5000} }]},
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader', options: { mimetype: 'application/octet-stream', limit: 10000} }]},
