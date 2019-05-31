@@ -10,6 +10,6 @@ Application is based on:
 - Cloned repository `chat`
 
 # Getting started
-- For development use command: `npm start`. Browser will open automatically the page with application
-- To build release use command: `npm run build`. 
-- To start up the server in release mode: `npm run server`. Open browser with `localhost:3000` (by default) to see the app. You can change port in `distServer.js` file.
+- For development run: `npm start`. Browser will open automatically the page with application
+- To build release run: `npm run build`. 
+- To start up the server in release mode: `npm run release`. Open browser with (default) `localhost:3000` to see the client app. You can change port in `distServer.js` file.

@@ -7,9 +7,8 @@ const GLOBALS = {
 };
 
 export default {
-    debug: true,
+    mode: 'production',
     devtool: 'source-map',
-    noInfo: false,
     entry: './src/index',
     target: 'web',
     output: {
@@ -29,12 +28,12 @@ export default {
     ],
     module: {
         loaders: [
-            { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel'] },
-            { test: /(\.css)$/, loader: ExtractTextPlugin.extract("css?sourceMap") },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
-            { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
+            { test: /\.js$/, include: path.join(__dirname, 'src'), use: [{ loader: 'babel-loader' }]},
+            { test: /(\.css)$/, use: [{ loader: ExtractTextPlugin.extract("css?sourceMap") }]},
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }]},
+            { test: /\.(woff|woff2)$/, use: [{ loader: 'url-loader', options: { prefix: 'font', limit: 5000} }]},
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader', options: { mimetype: 'application/octet-stream', limit: 10000} }]},
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader', options: { mimetype: 'image/svg+xml', limit: 10000} }]}
         ]
     }
 };
