@@ -3,8 +3,10 @@ node_js:
   - "node"
 install:
   - npm install -g codecov
+  - npm install
 script:
   - npm run build
+after_success:
   - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
   - codecov
 branches:
