@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('production')
@@ -22,14 +22,14 @@ export default {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
-        new ExtractTextPlugin('styles.css'),
+        new MiniCssExtractPlugin('styles.css'),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
         loaders: [
             { test: /\.js$/, include: path.join(__dirname, 'src'), use: [{ loader: 'babel-loader' }]},
-            { test: /(\.css)$/, use: [{ loader: ExtractTextPlugin.extract("css?sourceMap") }]},
+            { test: /(\.css)$/, use: [{ loader: MiniCssExtractPlugin.loader }]},
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }]},
             { test: /\.(woff|woff2)$/, use: [{ loader: 'url-loader', options: { prefix: 'font', limit: 5000} }]},
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader', options: { mimetype: 'application/octet-stream', limit: 10000} }]},
