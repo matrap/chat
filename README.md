@@ -12,4 +12,4 @@ Application is based on:
 # Getting started
 - For development run: `npm start`. Browser will open automatically the page with application
 - To build release run: `npm run build`. 
-- To start up the server in release mode: `npm run release`. Open browser with (default) `localhost:3000` to see the client app. You can change port in `distServer.js` file.
+- To start up the server in release mode: `npm run production`. Open browser with (default) `localhost:3000` to see the client app. You can change port in `distServer.js` file.

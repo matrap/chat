@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('production')
@@ -20,14 +21,25 @@ export default {
         contentBase: './dist'
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
-        new MiniCssExtractPlugin('styles.css'),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new MiniCssExtractPlugin('styles.css')
     ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                uglifyOptions: {
+                    compress: false,
+                    ecma: 6,
+                    mangle: true
+                },
+                sourceMap: true
+            })
+        ]
+    },    
     module: {
-        loaders: [
+        rules: [
             { test: /\.js$/, include: path.join(__dirname, 'src'), use: [{ loader: 'babel-loader' }]},
             { test: /(\.css)$/, use: [{ loader: MiniCssExtractPlugin.loader }]},
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }]},
