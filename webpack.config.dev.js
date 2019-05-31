@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
-    mode: 'production',    
+    mode: 'development',    
     devtool: 'inline-source-map',
     entry: [
         'eventsource-polyfill', // necessary for hot reloading with IE
