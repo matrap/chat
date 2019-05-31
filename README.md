@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/matrap/chat.svg?branch=master)](https://travis-ci.com/matrap/chat)
+[![codecov](https://codecov.io/gh/matrap/chat/branch/master/graph/badge.svg)](https://codecov.io/gh/matrap/chat)
 # Chat
 Application is based on:
 - node.js 
